@@ -7,6 +7,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export EDITOR=nano
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
