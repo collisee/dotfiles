@@ -4,52 +4,57 @@
 # Replace /path/to/your/wallpaper.png with your actual wallpaper path
 
 i3lock \
-    -i "/path/to/your/wallpaper.png" \
+    -i "" \
+    --fill \
     --color "000000ff" \
-    --ind-pos="x+310:y+h-80" \
-    --radius=25 \
-    --ring-width=5 \
+    --radius=128 \
+    --ring-width=12 \
     --inside-color="00000000" \
     --ring-color="ffffffff" \
     --separator-color="00000000" \
     --insidever-color="00000000" \
-    --insidewrong-color="d23c3dff" \
+    --insidewrong-color="00000000" \
     --ringver-color="ffffffff" \
-    --ringwrong-color="ffffffff" \
+    --ringwrong-color="d23c3dff" \
     --line-uses-inside \
-    --keyhl-color="d23c3dff" \
-    --bshl-color="d23c3dff" \
+    --keyhl-color="000000" \
+    --bshl-color="000000" \
     --clock --force-clock \
-    --time-pos="ix-265:iy-10" \
-    --time-align=1 \
+    --time-pos="ix:iy-250" \
+    --time-align=0 \
     --time-str="%H:%M:%S" \
     --time-color="ffffffff" \
-    --time-font="sans-serif" \
-    --time-size=32 \
-    --date-str="" \
-    --greeter-pos="ix-265:iy+12" \
-    --greeter-align=1 \
-    --greeter-text="Type password to unlock..." \
+    --time-font="Sans-serif:bold" \
+    --time-size=128 \
+    --date-str="%A, %m %Y" \
+    --date-pos="tx:ty-120" \
+    --date-color="ffffffff" \
+    --date-font="sans-serif:light" \
+    --date-size=60 \
+    --greeter-pos="ix-3:iy+45" \
+    --greeter-align=0 \
+    --greeter-text="󰌾" \
     --greeter-color="ffffffff" \
-    --greeter-font="sans-serif" \
-    --greeter-size=16 \
-    --layout-pos="ix-265:iy+32" \
+    --greeter-font="monospace" \
+    --greeter-size=128 \
+    --keylayout 0 \
+    --layout-pos="x+50:y+h-50" \
     --layout-align=1 \
     --layout-color="ffffffff" \
     --layout-font="sans-serif" \
-    --layout-size=12 \
-    --verif-pos="ix+35:iy-34" \
-    --verif-align=2 \
-    --verif-text="Verifying..." \
+    --layout-size=24 \
+    --verif-pos="ix:iy+100" \
+    --verif-align=0 \
+    --verif-text="Verifying" \
     --verif-color="ffffffff" \
     --verif-font="sans-serif" \
-    --verif-size=12 \
-    --wrong-pos="ix+24:iy-34" \
-    --wrong-align=2 \
-    --wrong-text="Failure!" \
+    --verif-size=24 \
+    --wrong-pos="ix:iy+100" \
+    --wrong-align=0 \
+    --wrong-text="Failed!" \
     --wrong-color="d23c3dff" \
     --wrong-font="sans-serif" \
-    --wrong-size=12 \
+    --wrong-size=24 \
     --modif-pos="ix+45:iy+43" \
     --modif-align=2 \
     --modif-size=12 \
