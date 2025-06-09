@@ -1,2 +1,2 @@
-wal -R &
+wal -R
 ibus-daemon -rxRd &
