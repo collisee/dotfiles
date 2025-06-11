@@ -1,0 +1,15 @@
+@theme "catppuccin-default"
+configuration {
+ modi: "window,drun,run,emoji";
+ show-icons: true;
+ }
+listview {
+    lines: 5;
+}
+element-icon {
+    size: 48px;
+}
+element-text {
+    expand: true;
+    vertical-align: 0.5;
+}

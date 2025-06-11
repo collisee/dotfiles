@@ -18,6 +18,10 @@ super + Escape
 super + shift + s
 	flameshot gui
 
+# rofi-emoji
+super + period
+	rofi -modi emoji -show emoji -emoji-format '\{emoji\}' -config $HOME/.config/rofi/emoji.rasi
+
 #
 # bspwm hotkeys
 #

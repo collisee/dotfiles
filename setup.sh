@@ -13,6 +13,21 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 
-yay -S btop chezmoi chromium fastfetch feh flameshot git gnome-keyring intel-gpu-tools intel-media-driver inter-font kitty libva-utils lightdm lightdm-gtk-greeter lxappearance-gtk3 micro noto-fonts-cjk pavucontrol picom pipewire pipewire-pulse polybar rofi ttf-recursive-nerd xclip xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs zsh zsh-autosuggestions zsh-syntax-highlighting apple_cursor ibus-bamboo python-pywal16 ttf-apple-emoji vesktop-bin yay-bin zsh-theme-powerlevel10k-git
+yay -S xorg bspwm sxhkd picom feh lightdm lightdm-gtk-greeter polybar rofi\ 
+chromium flameshot kitty lxappearance-gtk3 vesktop-bin \
+intel-gpu-tools intel-media-driver \
+pipewire pipewire-pulse pavucontrol \
+xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs gnome-keyring \
+zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git \
+inter-font ttf-apple-emoji noto-fonts-cjk ttf-recursive-nerd \
+btop chezmoi apple_cursor ibus-bamboo
 
-yay -S xorg bspwm sxhkd
+cat << EOF | sudo tee /etc/X11/xorg.conf.d/40-libinput.conf > /dev/null
+ Section "InputClass"
+  Identifier "libinput pointer catchall"
+  MatchIsPointer "on"
+  MatchDevicePath "/dev/input/event*"
+  Driver "libinput"
+  Option "AccelProfile" "flat"
+ EndSection
+EOF
