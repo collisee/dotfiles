@@ -26,6 +26,10 @@ super + period
 # bspwm hotkeys
 #
 
+# rotate node
+super + q
+	bspc node @parent --rotate 90
+
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}

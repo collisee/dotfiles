@@ -20,7 +20,7 @@ pipewire pipewire-pulse pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs gnome-keyring \
 zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git \
 inter-font ttf-apple-emoji noto-fonts-cjk ttf-recursive-nerd \
-btop chezmoi apple_cursor ibus-bamboo
+btop chezmoi apple_cursor ibus-bamboo zram-generator libappindicator-gtk2 libappindicator-gtk3
 
 cat << EOF | sudo tee /etc/X11/xorg.conf.d/40-libinput.conf > /dev/null
  Section "InputClass"
@@ -30,4 +30,16 @@ cat << EOF | sudo tee /etc/X11/xorg.conf.d/40-libinput.conf > /dev/null
   Driver "libinput"
   Option "AccelProfile" "flat"
  EndSection
+EOF
+
+cat << EOF | sudo tee /etc/libinput/local-overrides.quirks > /dev/null
+[disable libinput debounce]
+MatchUdevType=mouse
+ModelBouncingKeys=1
+EOF
+
+cat << EOF | sudo tee /etc/systemd/zram-generator.conf > /dev/null
+[zram0]
+zram-size = min(ram / 2, 4096)
+compression-algorithm = zstd
 EOF
