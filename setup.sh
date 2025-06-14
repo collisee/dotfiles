@@ -13,8 +13,8 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 
-yay -S xorg bspwm sxhkd picom feh lightdm lightdm-gtk-greeter polybar rofi\ 
-chromium flameshot kitty lxappearance-gtk3 vesktop-bin github-cli btop chezmoi \
+yay -S xorg bspwm sxhkd picom feh lightdm lightdm-gtk-greeter polybar rofi dunst \
+chromium flameshot kitty lxappearance-gtk3 vesktop-bin github-cli btop chezmoi lxsession \
 intel-gpu-tools intel-media-driver \
 pipewire pipewire-pulse pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs gnome-keyring \
