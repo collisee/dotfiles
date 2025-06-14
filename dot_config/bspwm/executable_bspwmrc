@@ -5,6 +5,7 @@ lxpolkit &
 picom &
 polybar &
 dunst &
+ibus-daemon -rxRd &
 pgrep -x sxhkd > /dev/null || sxhkd &
 ~/.fehbg &
 

@@ -14,13 +14,13 @@ cd yay-bin
 makepkg -si
 
 yay -S xorg bspwm sxhkd picom feh lightdm lightdm-gtk-greeter polybar rofi\ 
-chromium flameshot kitty lxappearance-gtk3 vesktop-bin \
+chromium flameshot kitty lxappearance-gtk3 vesktop-bin github-cli btop chezmoi \
 intel-gpu-tools intel-media-driver \
 pipewire pipewire-pulse pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs gnome-keyring \
 zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git \
 inter-font ttf-apple-emoji noto-fonts-cjk ttf-recursive-nerd \
-btop chezmoi apple_cursor ibus-bamboo zram-generator libappindicator-gtk2 libappindicator-gtk3
+apple_cursor papirus-icon-theme ibus-bamboo zram-generator libappindicator-gtk2 libappindicator-gtk3
 
 cat << EOF | sudo tee /etc/X11/xorg.conf.d/40-libinput.conf > /dev/null
  Section "InputClass"
