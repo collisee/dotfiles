@@ -14,7 +14,7 @@ cd yay-bin
 makepkg -si
 
 yay -S xorg bspwm sxhkd picom feh lightdm lightdm-gtk-greeter polybar rofi dunst \
-chromium flameshot kitty lxappearance-gtk3 vesktop-bin github-cli btop chezmoi lxsession \
+chromium flameshot kitty vesktop-bin github-cli btop chezmoi \
 intel-gpu-tools intel-media-driver \
 pipewire pipewire-pulse pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs gnome-keyring \

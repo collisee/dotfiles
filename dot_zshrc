@@ -8,6 +8,7 @@ fi
 
 export EDITOR=micro
 export TERMINAL=kitty
+export MOZ_USE_XINPUT2=1
 
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
