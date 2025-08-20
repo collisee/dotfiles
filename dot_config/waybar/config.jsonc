@@ -10,7 +10,7 @@
     "modules-right": [
         "hyprland/window",
         "group/group-audio",
-        "group/group-backlight",
+        "backlight",
         "battery",
         "clock",
         "tray",
@@ -41,30 +41,12 @@
         "orientation": "horizontal"
     },
     
-    // brightness slider
-    "group/group-backlight": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "transition-right-to-left": false
-        },
-        "modules": [
-            "backlight", // First element is the "group leader" and won't ever be hidden
-            "backlight/slider"
-        ]
-    },
+    // end slider
+    
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
-    "backlight/slider": {
-        "min": 5,
-        "max": 100,
-        "orientation": "horizontal"
-    },
-
-    // end slider
-
     "battery": {
         "states": {
             "good": 95,

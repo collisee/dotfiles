@@ -12,6 +12,10 @@ window#waybar {
     transition-duration: .5s;
 }
 
+window#waybar.empty .modules-right{
+    padding-left: 0;
+}
+
 /* you can set a style on hover for any module like this */
 .modules-right{
     background-color: @base;
