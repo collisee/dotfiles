@@ -29,8 +29,8 @@ cd ..
 rm -rf yay-bin
 
 yay -S --noconfirm wofi hyprland sddm dunst waybar \
-thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin \
-chromium flameshot kitty vesktop-bin github-cli btop chezmoi nwg-look \
+thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin gvfs engrampa \
+chromium flameshot kitty vesktop-bin github-cli btop chezmoi nwg-look grim \
 intel-gpu-tools intel-media-driver \
 pipewire pipewire-pulse pipewire-alsa pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-hyprland xdg-user-dirs gnome-keyring \
