@@ -48,6 +48,6 @@ EOF
 
 cat << EOF | sudo tee /etc/systemd/zram-generator.conf > /dev/null
 [zram0]
-zram-size = min(ram / 2, 4096)
+zram-size = 2048
 compression-algorithm = zstd
 EOF
