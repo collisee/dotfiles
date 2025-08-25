@@ -11,9 +11,11 @@ sudo sed -i '/^OPTIONS=/s/\(!debug\|debug\)/!debug/' /etc/makepkg.conf
 
 echo -e "\n--- Diff for /etc/pacman.conf ---"
 diff -U 3 --color /tmp/pacman.conf.orig /etc/pacman.conf
+echo -e "\n--- Diff End ---"
 
 echo -e "\n--- Diff for /etc/makepkg.conf ---"
 diff -U 3 --color /tmp/makepkg.conf.orig /etc/makepkg.conf
+echo -e "\n--- Diff End ---"
 
 rm /tmp/pacman.conf.orig /tmp/makepkg.conf.orig
 
@@ -28,17 +30,19 @@ cd ..
 
 rm -rf yay-bin
 
-yay -S --noconfirm wofi hyprland sddm dunst waybar \
+yay -S --noconfirm wofi hyprland sddm dunst waybar swww \
 thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin gvfs engrampa \
 chromium flameshot kitty vesktop-bin github-cli btop chezmoi nwg-look grim \
 intel-gpu-tools intel-media-driver \
 pipewire pipewire-pulse pipewire-alsa pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-hyprland xdg-user-dirs gnome-keyring \
 zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git fastfetch \
-inter-font ttf-apple-emoji noto-fonts-cjk noto-fonts ttf-recursive-nerd \
+inter-font ttf-apple-emoji noto-fonts-cjk ttf-recursive-nerd \
 apple_cursor papirus-icon-theme zram-generator libappindicator-gtk3 fcitx5-unikey fcitx5-configtool
 
 xdg-user-dirs-update
+
+chsh -s $(which zsh)
 
 cat << EOF | sudo tee /etc/libinput/local-overrides.quirks > /dev/null
 [disable libinput debounce]
