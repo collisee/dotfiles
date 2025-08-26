@@ -1,14 +1,15 @@
 // -*- mode: jsonc -*-
 {
-    "margin": 5,
+    "margin": 4,
     "spacing": 10,
+    "height": 36,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
     ],
     "modules-right": [
-        "hyprland/window",
         "group/group-audio",
         "backlight",
         "battery",
@@ -17,12 +18,17 @@
         "idle_inhibitor",
         "group/group-power"
     ],
-    
+    "hyprland/workspaces": {
+		"persistent-workspaces": {
+			"*": 8,
+		}
+    },
     // audio slider
     "group/group-audio": {
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 500,
+            "children-class": "pulseaudio-child",
             "transition-right-to-left": false
         },
         "modules": [

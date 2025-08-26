@@ -30,7 +30,7 @@ cd ..
 
 rm -rf yay-bin
 
-yay -S --noconfirm wofi hyprland sddm dunst waybar swww \
+yay -S --noconfirm wofi hyprland sddm dunst waybar swww hyprpolkitagent \
 thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin gvfs engrampa \
 chromium flameshot kitty vesktop-bin github-cli btop chezmoi nwg-look grim \
 intel-gpu-tools intel-media-driver \

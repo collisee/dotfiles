@@ -1,6 +1,5 @@
 @import "macchiato.css";
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: RecMonoCasual Nerd Font Propo;
     font-size: 16px;
 }
@@ -11,10 +10,11 @@ window#waybar {
     transition-property: background-color;
     transition-duration: .5s;
 }
-
+/*
 window#waybar.empty .modules-right{
     padding-left: 0;
 }
+*/
 
 /* you can set a style on hover for any module like this */
 .modules-right{
@@ -23,7 +23,7 @@ window#waybar.empty .modules-right{
     border-radius: 8px;
     border-style: solid;
     border-width: 2px;
-    border-color: @overlay0;
+    border-color: @surface1;
 }
 
 .modules-center{
@@ -31,12 +31,20 @@ window#waybar.empty .modules-right{
     min-width: 256px
 }
 
-#workspaces {
+#workspaces, #window{
     background-color: @base;
     border-radius: 8px;
     border-style: solid;
     border-width: 2px;
-    border-color: @overlay0;
+    border-color: @surface1;
+}
+
+#window {
+	padding: 0px 10px 0px 10px;
+}
+
+window#waybar.empty #window {
+	opacity: 0;
 }
 
 #workspaces button:first-child {
@@ -67,18 +75,25 @@ window#waybar.empty .modules-right{
 }
 
 #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 -3px rgba(255, 255, 255, 1);
+}
+
+#workspaces button:not(.empty):not(.active) {
+    box-shadow: inset 0 -3px rgba(255, 255, 255, 0.5);
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
+}
+
+.pulseaudio-child > .module {
+    padding: 0px 0px 0px 10px;
 }
 
 #backlight-slider slider, #pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
     opacity: 0;
+    background-color: transparent;
     background-image: none;
     border: none;
     box-shadow: none;
@@ -104,15 +119,12 @@ window#waybar.empty .modules-right{
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        color: @red;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
+	animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
