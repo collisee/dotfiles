@@ -21,7 +21,9 @@
     "hyprland/workspaces": {
 		"persistent-workspaces": {
 			"*": 8,
-		}
+		},
+		"show-special": true,
+		"special-visible-only": false
     },
     // audio slider
     "group/group-audio": {
