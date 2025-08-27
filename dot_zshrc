@@ -12,6 +12,17 @@ export MOZ_USE_XINPUT2=1
 
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
+rate-mirrors() {
+  if [[ $# -ne 0 ]]; then
+    command rate-mirrors "$@"
+  elif [[ $EUID -ne 0 ]]; then
+    echo "Re-running with sudo for root access..."
+    command sudo rate-mirrors --protocol https --allow-root --disable-comments --save /etc/pacman.d/mirrorlist arch
+  else
+    command rate-mirrors --protocol https --allow-root --disable-comments --save /etc/pacman.d/mirrorlist arch
+  fi
+}
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000

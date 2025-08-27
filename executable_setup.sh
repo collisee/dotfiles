@@ -38,7 +38,7 @@ pipewire pipewire-pulse pipewire-alsa pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-hyprland xdg-user-dirs gnome-keyring \
 zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git fastfetch \
 inter-font ttf-apple-emoji noto-fonts-cjk ttf-recursive-nerd \
-apple_cursor papirus-icon-theme zram-generator libappindicator-gtk3 fcitx5-unikey fcitx5-configtool
+apple_cursor papirus-icon-theme zram-generator libappindicator-gtk3 fcitx5-unikey fcitx5-im
 
 xdg-user-dirs-update
 
