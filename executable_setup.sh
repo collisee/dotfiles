@@ -1,9 +1,10 @@
 cp /etc/pacman.conf /tmp/pacman.conf.orig
 cp /etc/makepkg.conf /tmp/makepkg.conf.orig
 
-if ! grep -q "ILoveCandy" /etc/pacman.conf; then
-    sudo sed -i '/^[[:space:]]*#[[:space:]]*Misc options/a\ILoveCandy' /etc/pacman.conf
-fi
+# if ! grep -q "ILoveCandy" /etc/pacman.conf; then
+#     sudo sed -i '/^[[:space:]]*#[[:space:]]*Misc options/a\ILoveCandy' /etc/pacman.conf
+# fi
+
 sudo sed -i 's/^[[:space:]]*#[[:space:]]*Color[[:space:]]*$/Color/' /etc/pacman.conf
 sudo sed -i 's/^[[:space:]]*#[[:space:]]*VerbosePkgLists[[:space:]]*$/VerbosePkgLists/' /etc/pacman.conf
 sudo sed -i '/\[multilib\]/,/^$/s/^#//' /etc/pacman.conf
@@ -33,7 +34,7 @@ rm -rf yay-bin
 yay -S --noconfirm wofi hyprland sddm dunst waybar swww hyprpolkitagent \
 thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin thunar-archive-plugin gvfs engrampa \
 chromium flameshot alacritty vesktop-bin github-cli btop chezmoi nwg-look grim \
-intel-gpu-tools intel-media-driver \
+intel-gpu-tools intel-media-driver rate-mirrors-bin wl-clip-persist \
 pipewire pipewire-pulse pipewire-alsa pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-hyprland xdg-user-dirs gnome-keyring \
 zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel10k-git fastfetch \

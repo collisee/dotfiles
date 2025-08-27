@@ -19,6 +19,10 @@
         "group/group-power"
     ],
     "hyprland/workspaces": {
+		"format": "{icon}",
+    	"format-icons": {
+    		"magic": "󰐃"
+    	},
 		"persistent-workspaces": {
 			"*": 8,
 		},
@@ -31,7 +35,7 @@
         "drawer": {
             "transition-duration": 500,
             "children-class": "pulseaudio-child",
-            "transition-right-to-left": false
+            "transition-left-to-right": false
         },
         "modules": [
             "pulseaudio", // First element is the "group leader" and won't ever be hidden
@@ -40,7 +44,7 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "on-click": "pavucontrol",
+        "on-click": "hyprctl dispatch exec '[float; move onscreen cursor -50% 0; size 720 720] pavucontrol -t 3'",
         "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
     "pulseaudio/slider": {
