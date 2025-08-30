@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
     "margin": 4,
-    "spacing": 10,
+    "spacing": 4,
     "height": 36,
     "modules-left": [
         "hyprland/workspaces",
@@ -10,12 +10,9 @@
     "modules-center": [
     ],
     "modules-right": [
-        "group/group-audio",
-        "backlight",
-        "battery",
+    	"group/group-tray",
+        "group/group-status",
         "clock",
-        "tray",
-        "idle_inhibitor",
         "group/group-power"
     ],
     "hyprland/workspaces": {
@@ -29,17 +26,15 @@
 		"show-special": true,
 		"special-visible-only": false
     },
-    // audio slider
-    "group/group-audio": {
+    
+    
+
+    "group/group-status": {
         "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "pulseaudio-child",
-            "transition-left-to-right": false
-        },
         "modules": [
-            "pulseaudio", // First element is the "group leader" and won't ever be hidden
-            "pulseaudio/slider"
+            "pulseaudio",
+            "backlight",
+            "battery"
         ]
     },
     "pulseaudio": {
@@ -47,14 +42,6 @@
         "on-click": "hyprctl dispatch exec '[float; move onscreen cursor -50% 0; size 720 720] pavucontrol -t 3'",
         "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal"
-    },
-    
-    // end slider
-    
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": ["󰃞", "󰃟", "󰃠"]
@@ -72,6 +59,8 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
+
+    
     "clock": {
     	"calendar": {
 	        "mode"          : "month",
@@ -95,6 +84,14 @@
         },
         "tooltip-format": "{calendar}",
         "format": "{:%b %d %H:%M} 󰃰"
+    },
+
+    "group/group-tray": {
+        "orientation": "inherit",
+        "modules": [
+            "tray",
+            "idle_inhibitor"
+        ]
     },
     "tray": {
         "spacing": 10
