@@ -21,7 +21,7 @@
     		"magic": "󰐃"
     	},
 		"persistent-workspaces": {
-			"*": 8,
+			"*": 6,
 		},
 		"show-special": true,
 		"special-visible-only": false
