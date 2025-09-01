@@ -39,7 +39,7 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
-        "on-click": "hyprctl dispatch exec '[float; move onscreen cursor -50% 0; size 720 720] pavucontrol -t 3'",
+        "on-click": "/home/pnht/.config/waybar/scripts/pavucontrol.sh",
         "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
     "backlight": {
