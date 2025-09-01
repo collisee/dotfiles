@@ -33,7 +33,7 @@ rm -rf yay-bin
 
 yay -S --noconfirm wofi hyprland sddm dunst waybar swww lxqt-policykit \
 thunar tumbler ffmpegthumbnailer thunar-media-tags-plugin thunar-shares-plugin thunar-archive-plugin gvfs engrampa \
-chromium flameshot alacritty vesktop-bin github-cli btop chezmoi nwg-look grim \
+chromium flameshot kitty vesktop-bin github-cli btop chezmoi nwg-look grim \
 intel-gpu-tools intel-media-driver rate-mirrors-bin wl-clip-persist opentabletdriver \
 pipewire pipewire-pulse pipewire-alsa pavucontrol \
 xdg-desktop-portal xdg-desktop-portal-hyprland xdg-user-dirs gnome-keyring \
