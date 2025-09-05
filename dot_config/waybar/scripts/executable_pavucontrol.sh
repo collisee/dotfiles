@@ -1,15 +1,55 @@
 #!/bin/bash
 
-WIDTH=720
-HEIGHT=720
+TEMP_FILE="/tmp/pavucontrol_toggle"
 
-RESERVED_TOP=$(hyprctl -j monitors | jq '.[0].reserved[1]' 2>/dev/null)
+if pgrep -x pavucontrol > /dev/null; then
+    echo "pavucontrol is running."
 
-cursor_pos=$(hyprctl cursorpos)
-x=$(echo "$cursor_pos" | awk -F', ' '{print $1}')
-y=$(echo "$cursor_pos" | awk -F', ' '{print $2}')
-x=$(( x - WIDTH / 2 ))
+    monitors_json=$(hyprctl -j monitors)
+    clients_json=$(hyprctl -j clients)
 
-[ "$y" -lt "$RESERVED_TOP" ] && y=$RESERVED_TOP
+    pavu_workspace=$(echo "$clients_json" | jq -r '
+        .[] 
+        | select(.class == "org.pulseaudio.pavucontrol") 
+        | .workspace 
+        | if .id != 0 then .name else (.id | tostring) end
+    ')
 
-hyprctl dispatch "exec [float; move $x $y; size $WIDTH $HEIGHT] pavucontrol -t 3"
+    focused_workspace=$(echo "$monitors_json" | jq -r '
+        .[] 
+        | select(.focused == true) 
+        | if .specialWorkspace.id != 0 
+            then .specialWorkspace.name 
+            else (.activeWorkspace.id | tostring) 
+          end
+    ')
+
+    echo "pavucontrol workspace: $pavu_workspace"
+    echo "Focused workspace: $focused_workspace"
+
+    if [ "$pavu_workspace" = "$focused_workspace" ]; then
+        echo "pavucontrol is already in the current workspace. Closing it."
+        hyprctl dispatch closewindow class:org.pulseaudio.pavucontrol
+    else
+        echo "Moving pavucontrol to current workspace."
+        hyprctl dispatch movetoworkspace "$focused_workspace",class:org.pulseaudio.pavucontrol
+    fi
+
+else
+    echo "Opening pavucontrol"
+    WIDTH=720
+    HEIGHT=720
+
+    # Get reserved space from focused monitor
+    monitors_json=$(hyprctl -j monitors)
+    RESERVED_TOP=$(echo "$monitors_json" | jq '.[0].reserved[1]' 2>/dev/null)
+
+    cursor_pos=$(hyprctl cursorpos)
+    x=$(echo "$cursor_pos" | awk -F', ' '{print $1}')
+    y=$(echo "$cursor_pos" | awk -F', ' '{print $2}')
+    x=$(( x - WIDTH / 2 ))
+
+    [ "$y" -lt "$RESERVED_TOP" ] && y=$RESERVED_TOP
+
+    hyprctl dispatch "exec [float; move $x $y; size $WIDTH $HEIGHT] pavucontrol -t 3"
+fi
